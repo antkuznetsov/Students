@@ -1,11 +1,12 @@
 package main.services;
 
+import main.model.entity.Student;
+
+import java.util.List;
+
 /**
- * Created by Kuznetsov on 19/04/2017.
+ * Created by Artem Panasyuk on 19.04.2017.
  */
-
-public class StudentService {
-
-    //public static StudentDao studentDaoImpl = new StudentDaoImpl();
-
+public interface StudentService {
+    List<Student> findAll();
 }

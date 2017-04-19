@@ -1,5 +1,6 @@
 package main.controllers;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -7,13 +8,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by Kuznetsov on 19/04/2017.
+ * Created by admin on 18.04.2017.
  */
-
 public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher(req.getContextPath() + "/login.jsp").forward(req, resp);
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
+        dispatcher.forward(req, resp);
     }
 
     @Override
@@ -21,9 +22,9 @@ public class LoginServlet extends HttpServlet {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         if ("user".equals(login) && "pass".equals(password)) {
-            resp.sendRedirect(req.getContextPath() + "/listStudents");
+            resp.sendRedirect("/listStudents");
         } else {
-            resp.sendRedirect(req.getContextPath() + "/error");
+            resp.sendRedirect("/error");
         }
     }
 }

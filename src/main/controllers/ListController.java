@@ -1,7 +1,10 @@
 package main.controllers;
 
-import main.models.pojo.Student;
+import main.model.entity.Student;
+import main.services.StudentService;
+import main.services.StudentServiceImpl;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -11,26 +14,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Kuznetsov on 19/04/2017.
+ * Created by admin on 18.04.2017.
  */
-
 public class ListController extends HttpServlet {
+
+    public  static StudentService service = new StudentServiceImpl();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        req.setAttribute("value", "Привет, студенты");
+        req.setAttribute("value", "Hello, student");
 
-        List<Student> list = new ArrayList<Student>();
-        Student student1 = new Student(1, "Антон Кузнецов", 24, 1);
-        Student student2 = new Student(2, "Иван Рыков", 22, 1);
-        Student student3 = new Student(3, "Александра Воробьева", 19, 1);
-
+/*        List<Student> list = new ArrayList<>();
+        Student student1 = new Student(1,"Vasya", 12);
+        Student student2 = new Student(2,"Kolya", 22);
         list.add(student1);
-        list.add(student2);
-        list.add(student3);
-
+        list.add(student2);*/
+        List<Student> list = service.findAll();
         req.setAttribute("list", list);
 
-        getServletContext().getRequestDispatcher("/list.jsp").forward(req, resp);
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/list.jsp");
+        dispatcher.forward(req, resp);
+    }
+
+    @Override
+
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     }
 }
