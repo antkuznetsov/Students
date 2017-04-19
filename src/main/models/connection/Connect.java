@@ -1,5 +1,6 @@
-package models.connection;
+package main.models.connection;
 
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
@@ -8,7 +9,7 @@ import java.sql.SQLException;
  */
 
 public class Connect {
-    private final String DBNAME = "lsp-1";
+    private final String DBNAME = "students";
     private final String DBLOGIN = "postgres";
     private final String DBPASSWORD = "656450";
 
@@ -16,7 +17,7 @@ public class Connect {
      * Возвращает соединение с БД
      * @return Connection
      */
-    public java.sql.Connection initConnection() {
+    public Connection initConnection() {
 
         java.sql.Connection connection = null;
 

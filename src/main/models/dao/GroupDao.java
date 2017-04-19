@@ -1,4 +1,4 @@
-package models.dao;
+package main.models.dao;
 
 /**
  * Created by Kuznetsov on 18/04/2017.

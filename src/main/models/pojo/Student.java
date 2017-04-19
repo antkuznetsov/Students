@@ -1,4 +1,4 @@
-package models.pojo;
+package main.models.pojo;
 
 /**
  * Created by Kuznetsov on 18/04/2017.
@@ -9,14 +9,14 @@ public class Student {
     String name;
     int age;
     int groupId;
-    Group group;
+    //Group group;
 
-    public Student(int id, String name, int age, int groupId, Group group) {
+    public Student(int id, String name, int age, int groupId/*, Group group*/) {
         this.id = id;
         this.name = name;
         this.age = age;
         this.groupId = groupId;
-        this.group = group;
+        //this.group = group;
     }
 
     public Student() {
@@ -55,6 +55,7 @@ public class Student {
         this.groupId = groupId;
     }
 
+    /*
     public Group getGroup() {
         return group;
     }
@@ -62,4 +63,5 @@ public class Student {
     public void setGroup(Group group) {
         this.group = group;
     }
+    */
 }

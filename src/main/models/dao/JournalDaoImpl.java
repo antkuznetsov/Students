@@ -1,6 +1,4 @@
-package models.dao;
-
-import jdk.nashorn.internal.scripts.JO;
+package main.models.dao;
 
 /**
  * Created by Kuznetsov on 18/04/2017.
