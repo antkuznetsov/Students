@@ -11,7 +11,7 @@ import java.util.List;
 
 public class StudentDaoImpl implements StudentDao {
 
-    private static final Logger LOG = Logger.getLogger(StudentDaoImpl.class);
+    private static final Logger LOGGER = Logger.getLogger(StudentDaoImpl.class);
     private DataSource dataSource;
 
     public StudentDaoImpl(DataSource dataSource) {

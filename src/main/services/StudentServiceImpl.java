@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class StudentServiceImpl implements StudentService {
     private DataSource dataSource = DataSourceFactory.getMyPGDataSource();
-    private StudentDao studentDao= new StudentDaoImpl(dataSource);
+    private StudentDao studentDao = new StudentDaoImpl(dataSource);
 
     public List<Student> findAll(){
       return studentDao.findAll();

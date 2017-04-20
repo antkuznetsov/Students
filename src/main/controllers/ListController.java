@@ -3,6 +3,7 @@ package main.controllers;
 import main.model.entity.Student;
 import main.services.StudentService;
 import main.services.StudentServiceImpl;
+import org.apache.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,13 +11,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by admin on 18.04.2017.
  */
+
 public class ListController extends HttpServlet {
+
+    private static final Logger LOGGER = Logger.getLogger(LoginServlet.class);
 
     public  static StudentService service = new StudentServiceImpl();
 
@@ -25,11 +28,6 @@ public class ListController extends HttpServlet {
 
         req.setAttribute("value", "Hello, student");
 
-/*        List<Student> list = new ArrayList<>();
-        Student student1 = new Student(1,"Vasya", 12);
-        Student student2 = new Student(2,"Kolya", 22);
-        list.add(student1);
-        list.add(student2);*/
         List<Student> list = service.findAll();
         req.setAttribute("list", list);
 
@@ -39,6 +37,5 @@ public class ListController extends HttpServlet {
 
     @Override
 
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    }
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {}
 }
